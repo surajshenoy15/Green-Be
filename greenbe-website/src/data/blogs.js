@@ -45,7 +45,7 @@ export const blogs = [
     category: 'Plantation',
     date: 'June 28, 2026',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1497436072909-f5e4be1713c0?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1761483614371-b74e143d0039?auto=format&fit=crop&w=1400&q=85',
     excerpt: 'Meaningful plantation work continues after the event photograph, through species selection, watering, monitoring and community care.',
     content: [
       { type: 'p', text: 'Tree-planting drives can create awareness and bring communities together. Their long-term value, however, depends on what happens after the saplings are placed in the ground.' },
