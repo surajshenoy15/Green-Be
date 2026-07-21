@@ -20,11 +20,26 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-sm font-bold uppercase tracking-[0.18em] text-limeleaf">Explore</h3>
             <div className="mt-5 grid gap-3 text-sm text-white/70">
-              <Link to="/about" className="hover:text-white">About GreenBe</Link>
-              <Link to="/blogs" className="hover:text-white">Stories & insights</Link>
-              <Link to="/calculator" className="hover:text-white">Carbon calculator</Link>
-              <Link to="/greenbe-app" className="hover:text-white">GreenBe app</Link>
-            </div>
+  <Link to="/about" className="hover:text-white">
+    About GreenBe
+  </Link>
+
+  <Link to="/blogs" className="hover:text-white">
+    Stories & insights
+  </Link>
+
+  <Link to="/facts" className="hover:text-white">
+    Did you know?
+  </Link>
+
+  <Link to="/calculator" className="hover:text-white">
+    Carbon calculator
+  </Link>
+
+  <Link to="/greenbe-app" className="hover:text-white">
+    GreenBe app
+  </Link>
+</div>
           </div>
 
           <div>

@@ -4,6 +4,7 @@ import { ArrowUpRight, Leaf, Menu, X } from 'lucide-react'
 
 const links = [
   ['About us', '/about'],
+  ['Did you know?', '/facts'],
   ['Our stories', '/blogs'],
   ['Carbon calculator', '/calculator'],
   ['GreenBe app', '/greenbe-app'],
