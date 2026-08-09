@@ -24,7 +24,7 @@ export default function AdminLayout() {
         <div className="flex h-20 items-center justify-between border-b border-forest-100 px-6">
           <Link to="/admin" className="flex items-center gap-3 font-display text-xl font-extrabold text-forest-900">
             <span className="grid h-10 w-10 place-items-center rounded-2xl bg-forest-700 text-white"><Leaf size={20} /></span>
-            GreenBe CMS
+            Green Be
           </Link>
           <button className="grid h-10 w-10 place-items-center rounded-xl hover:bg-forest-50 lg:hidden" onClick={() => setMobileOpen(false)} aria-label="Close menu"><X size={20} /></button>
         </div>
