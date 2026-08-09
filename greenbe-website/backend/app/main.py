@@ -10,52 +10,141 @@ from .database import Base, SessionLocal, engine
 from .models import AdminUser  # noqa: F401 - registers metadata
 from .routers import admin, auth, public
 
+
 settings = get_settings()
 
 
+# ==========================================
+# CORS
+# ==========================================
+
+CORS_ORIGINS = [
+    # Local frontend
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+
+    # Production frontend - Vercel
+    "https://green-be-five.vercel.app",
+]
+
+
+# ==========================================
+# CREATE DEFAULT ADMIN
+# ==========================================
+
 async def ensure_seed_admin() -> None:
-    if not settings.admin_seed_email or not settings.admin_seed_password:
+
+    if (
+        not settings.admin_seed_email
+        or not settings.admin_seed_password
+    ):
         return
+
     async with SessionLocal() as db:
+
         existing = await db.scalar(
-            select(AdminUser).where(func.lower(AdminUser.email) == settings.admin_seed_email.strip().lower())
+            select(AdminUser).where(
+                func.lower(AdminUser.email)
+                == settings.admin_seed_email.strip().lower()
+            )
         )
+
         if not existing:
+
             db.add(
                 AdminUser(
                     email=settings.admin_seed_email.strip().lower(),
                     full_name=settings.admin_seed_name,
-                    password_hash=hash_password(settings.admin_seed_password),
+                    password_hash=hash_password(
+                        settings.admin_seed_password
+                    ),
                 )
             )
+
             await db.commit()
 
 
+# ==========================================
+# FASTAPI LIFESPAN
+# ==========================================
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+
+    # Automatically create tables
     if settings.auto_create_tables:
+
         async with engine.begin() as conn:
-            await conn.run_sync(Base.metadata.create_all)
+
+            await conn.run_sync(
+                Base.metadata.create_all
+            )
+
+    # Create default admin if required
     await ensure_seed_admin()
+
     yield
+
+    # Properly close DB connections
     await engine.dispose()
 
 
-app = FastAPI(title="GreenBe CMS API", version="1.0.0", lifespan=lifespan)
+# ==========================================
+# FASTAPI APP
+# ==========================================
+
+app = FastAPI(
+    title="GreenBe CMS API",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+
+# ==========================================
+# CORS MIDDLEWARE
+# ==========================================
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins,
+
+    allow_origins=CORS_ORIGINS,
+
     allow_credentials=True,
+
     allow_methods=["*"],
+
     allow_headers=["*"],
 )
 
-app.include_router(auth.router, prefix="/api")
-app.include_router(public.router, prefix="/api")
-app.include_router(admin.router, prefix="/api")
 
+# ==========================================
+# ROUTERS
+# ==========================================
+
+app.include_router(
+    auth.router,
+    prefix="/api",
+)
+
+app.include_router(
+    public.router,
+    prefix="/api",
+)
+
+app.include_router(
+    admin.router,
+    prefix="/api",
+)
+
+
+# ==========================================
+# HEALTH CHECK
+# ==========================================
 
 @app.get("/api/health")
 async def health() -> dict[str, str]:
-    return {"status": "ok", "environment": settings.environment}
+
+    return {
+        "status": "ok",
+        "environment": settings.environment,
+    }
