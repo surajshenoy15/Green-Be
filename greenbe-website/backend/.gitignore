@@ -1,0 +1,165 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.so
+
+
+# ==============================
+# Virtual environments
+# ==============================
+
+.venv/
+venv/
+env/
+ENV/
+
+
+# ==============================
+# Environment / secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+
+# ==============================
+# Python package/build files
+# ==============================
+
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+
+*.egg-info/
+.installed.cfg
+*.egg
+
+
+# ==============================
+# Testing / coverage
+# ==============================
+
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+coverage.xml
+
+
+# ==============================
+# Type checkers / linters
+# ==============================
+
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+.pyre/
+.pytype/
+
+.ruff_cache/
+
+
+# ==============================
+# IDE / editors
+# ==============================
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+
+
+# ==============================
+# OS generated
+# ==============================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+logs/
+
+
+# ==============================
+# Local databases
+# ==============================
+
+*.db
+*.sqlite
+*.sqlite3
+
+
+# ==============================
+# Temporary files
+# ==============================
+
+tmp/
+temp/
+*.tmp
+
+
+# ==============================
+# Celery / task files
+# ==============================
+
+celerybeat-schedule
+celerybeat.pid
+
+
+# ==============================
+# FastAPI / Uvicorn
+# ==============================
+
+*.pid
+
+
+# ==============================
+# Supabase local development
+# ==============================
+
+.supabase/
+supabase/.temp/
+
+
+# ==============================
+# Certificates / private keys
+# ==============================
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+
+# ==============================
+# Miscellaneous
+# ==============================
+
+.cache/

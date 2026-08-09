@@ -1,44 +1,30 @@
-# GreenBe NGO Website
+# GreenBe Dynamic Blog CMS
 
-A responsive, blog-first NGO website for **GreenBe — Your partner in clean living**.
+This package is the supplied GreenBe showcase website upgraded into a full dynamic blog CMS.
 
-## Included
+## Folder structure
 
-- Professional green-and-white visual system
-- Mobile-first responsive navigation and layouts
-- Home page with programme highlights
-- Elaborated About page based on the supplied GreenBe brief
-- Hardcoded blog listing and individual blog routes
-- Interactive educational carbon-footprint calculator
-- GreenBe sustainability app product page
-- Lucide icons throughout; no emoji UI
-
-## Run locally
-
-```bash
-npm install
-npm run dev
+```text
+GreenBe-Dynamic-CMS/
+├── frontend/   React + Vite + Tailwind + Tiptap
+└── backend/    FastAPI + SQLAlchemy + Supabase Postgres/Storage
 ```
 
-## Production build
+## What changed
 
-```bash
-npm run build
-```
+The original visual language is preserved for the public site. The previous hard-coded blog data has been replaced by FastAPI-powered public APIs, and the home-page story cards now load from the CMS as well.
 
-## Main routes
+The admin area is intentionally hidden from the public navigation. Visit `/login` directly to sign in. After authentication, the admin can create, edit, preview, publish, unpublish and delete blogs from the dashboard.
 
-- `/` — Home
-- `/about` — About GreenBe
-- `/blogs` — Blog index
-- `/blogs/:slug` — Individual article
-- `/calculator` — Carbon calculator
-- `/greenbe-app` — Product vision
+The writing experience is Medium-inspired rather than a copy of Medium branding: a clean title/subtitle canvas, selection bubble menu, insertion controls, live WYSIWYG drafting, cover image, rich metadata and public-style preview. Tiptap is used as the editor engine.
 
-## Calculator note
+## Quick start
 
-The calculator is intentionally educational, not a certified carbon inventory. Electricity uses the Indian grid weighted-average factor of 0.710 kg CO2/kWh for FY 2024-25. Other lifestyle factors are simplified averages and should be replaced with a reviewed India-specific methodology before public production use.
+1. Create a Supabase project.
+2. Configure `backend/.env` from `backend/.env.example`.
+3. Run the FastAPI backend.
+4. Configure `frontend/.env` from `frontend/.env.example`.
+5. Run the React frontend.
+6. Open `/login` directly with the admin credentials configured in the backend environment.
 
-## Images
-
-The prototype references Unsplash-hosted images. For production, download approved photographs, optimise them to WebP/AVIF, add photographer credits and serve them through your own CDN or `/public` folder.
+See the README inside each folder for exact commands and deployment notes.
