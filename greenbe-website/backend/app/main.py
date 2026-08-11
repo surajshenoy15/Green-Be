@@ -25,6 +25,7 @@ CORS_ORIGINS = [
 
     # Production frontend - Vercel
     "https://green-be-five.vercel.app",
+    "https://green-be-sage.vercel.app",
 ]
 
 
