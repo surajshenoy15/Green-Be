@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     environment: str = "development"
     database_url: str = "sqlite+aiosqlite:///./greenbe.db"
-    frontend_origins: str = "http://localhost:5173"
+    frontend_origins: str = "https://www.greenbe.in"
     auto_create_tables: bool = True
 
     jwt_secret: str = "change-me-in-production"
