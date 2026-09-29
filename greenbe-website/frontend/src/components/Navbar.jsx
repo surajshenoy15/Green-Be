@@ -29,12 +29,13 @@ export default function Navbar() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all ${solid ? 'border-b border-forest-100 bg-white/95 shadow-sm backdrop-blur-xl' : 'bg-transparent'}`}>
       <div className="container-shell flex h-16 items-center justify-between sm:h-20">
-        <Link to="/" className={`flex items-center gap-2.5 font-display text-xl font-extrabold ${solid ? 'text-forest-900' : 'text-white'}`}>
-          <span className={`grid h-10 w-10 place-items-center rounded-2xl ${solid ? 'bg-forest-700 text-white' : 'bg-white/[.15] text-white backdrop-blur'}`}>
-            <Leaf size={21} strokeWidth={2.4} />
-          </span>
-          <span>GreenBe</span>
-        </Link>
+        <Link to="/" className="flex items-center">
+  <img
+    src="/images/logo-1.png"
+    alt="GreenBe"
+    className="h-12 w-auto object-contain"
+  />
+</Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
           {links.map(([label, to]) => (
