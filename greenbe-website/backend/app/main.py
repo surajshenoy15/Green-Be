@@ -14,138 +14,62 @@ from .routers import admin, auth, public
 settings = get_settings()
 
 
-# ==========================================
-# CORS
-# ==========================================
-
-CORS_ORIGINS = [
-    # Local frontend
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-
-    # Production frontend - Vercel
-    "https://green-be-five.vercel.app",
-    "https://green-be-sage.vercel.app",
-]
-
-
-# ==========================================
-# CREATE DEFAULT ADMIN
-# ==========================================
-
 async def ensure_seed_admin() -> None:
-
-    if (
-        not settings.admin_seed_email
-        or not settings.admin_seed_password
-    ):
+    """Create the initial admin only when explicitly configured and missing."""
+    if not settings.admin_seed_email or not settings.admin_seed_password:
         return
 
     async with SessionLocal() as db:
-
         existing = await db.scalar(
             select(AdminUser).where(
-                func.lower(AdminUser.email)
-                == settings.admin_seed_email.strip().lower()
+                func.lower(AdminUser.email) == settings.admin_seed_email.strip().lower()
             )
         )
-
-        if not existing:
-
-            db.add(
-                AdminUser(
-                    email=settings.admin_seed_email.strip().lower(),
-                    full_name=settings.admin_seed_name,
-                    password_hash=hash_password(
-                        settings.admin_seed_password
-                    ),
-                )
+        if existing:
+            return
+        db.add(
+            AdminUser(
+                email=settings.admin_seed_email.strip().lower(),
+                full_name=settings.admin_seed_name,
+                password_hash=hash_password(settings.admin_seed_password),
             )
+        )
+        await db.commit()
 
-            await db.commit()
-
-
-# ==========================================
-# FASTAPI LIFESPAN
-# ==========================================
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    settings.validate_runtime()
 
-    # Automatically create tables
+    # SQLAlchemy create_all only creates missing tables. It does not drop or
+    # reset existing tables, but use controlled SQL/migrations in production.
     if settings.auto_create_tables:
-
         async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
-            await conn.run_sync(
-                Base.metadata.create_all
-            )
-
-    # Create default admin if required
     await ensure_seed_admin()
-
-    yield
-
-    # Properly close DB connections
-    await engine.dispose()
-
-
-# ==========================================
-# FASTAPI APP
-# ==========================================
-
-app = FastAPI(
-    title="GreenBe CMS API",
-    version="1.0.0",
-    lifespan=lifespan,
-)
+    try:
+        yield
+    finally:
+        await engine.dispose()
 
 
-# ==========================================
-# CORS MIDDLEWARE
-# ==========================================
+app = FastAPI(title="GreenBe Website CMS API", version="1.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-
-    allow_origins=CORS_ORIGINS,
-
+    allow_origins=settings.cors_origins,
     allow_credentials=True,
-
     allow_methods=["*"],
-
     allow_headers=["*"],
 )
 
-
-# ==========================================
-# ROUTERS
-# ==========================================
-
-app.include_router(
-    auth.router,
-    prefix="/api",
-)
-
-app.include_router(
-    public.router,
-    prefix="/api",
-)
-
-app.include_router(
-    admin.router,
-    prefix="/api",
-)
+# Keep these routes unchanged: the React/Vite frontend expects /api/...
+app.include_router(auth.router, prefix="/api")
+app.include_router(public.router, prefix="/api")
+app.include_router(admin.router, prefix="/api")
 
 
-# ==========================================
-# HEALTH CHECK
-# ==========================================
-
-@app.get("/api/health")
+@app.get("/api/health", tags=["health"])
 async def health() -> dict[str, str]:
-
-    return {
-        "status": "ok",
-        "environment": settings.environment,
-    }
+    return {"status": "ok", "environment": settings.environment}
