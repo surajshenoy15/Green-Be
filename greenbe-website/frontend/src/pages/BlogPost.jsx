@@ -130,7 +130,7 @@ export default function BlogPost() {
         <div className="flex flex-col items-center gap-3">
           <LoaderCircle
             size={30}
-            className="animate-spin text-forest-700"
+            className="animate-spin text-brand-700"
           />
 
           <p className="text-sm font-semibold text-slate-500">
@@ -149,7 +149,7 @@ export default function BlogPost() {
     return (
       <div className="container-shell flex min-h-[70vh] flex-col items-center justify-center text-center">
 
-        <h1 className="font-display text-3xl font-extrabold text-forest-950">
+        <h1 className="font-display text-3xl font-extrabold text-brand-950">
           Story not found
         </h1>
 
@@ -161,7 +161,7 @@ export default function BlogPost() {
 
         <Link
           to="/blogs"
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-forest-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-forest-800"
+          className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800"
         >
           <ArrowLeft size={17} />
           Back to blogs
@@ -184,7 +184,7 @@ export default function BlogPost() {
           ARTICLE HEADER
       ====================================== */}
 
-      <section className="bg-forest-50">
+      <section className="bg-brand-50 pt-[76px] sm:pt-[86px]">
 
         <div className="container-shell">
 
@@ -194,7 +194,7 @@ export default function BlogPost() {
 
             <Link
               to="/blogs"
-              className="inline-flex items-center gap-2 text-xs font-bold text-forest-700 transition hover:text-forest-950"
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-700 transition hover:text-brand-950"
             >
               <ArrowLeft size={15} />
               Back to all stories
@@ -203,14 +203,14 @@ export default function BlogPost() {
 
             {/* Category */}
 
-            <p className="mt-8 text-xs font-extrabold uppercase tracking-[.18em] text-forest-600">
+            <p className="mt-8 text-xs font-extrabold uppercase tracking-[.18em] text-brand-600">
               {post.category || 'Stories'}
             </p>
 
 
             {/* Title */}
 
-            <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-forest-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-brand-950 sm:text-5xl lg:text-6xl">
               {post.title}
             </h1>
 
@@ -233,7 +233,7 @@ export default function BlogPost() {
 
                   <CalendarDays
                     size={15}
-                    className="text-forest-600"
+                    className="text-brand-600"
                   />
 
                   {formatDate(
@@ -249,7 +249,7 @@ export default function BlogPost() {
 
                   <Clock
                     size={15}
-                    className="text-forest-600"
+                    className="text-brand-600"
                   />
 
                   {post.read_time_minutes}{' '}
@@ -262,7 +262,7 @@ export default function BlogPost() {
               <button
                 type="button"
                 onClick={share}
-                className="inline-flex items-center gap-1.5 font-bold text-forest-700 transition hover:text-forest-950"
+                className="inline-flex items-center gap-1.5 font-bold text-brand-700 transition hover:text-brand-950"
               >
                 <Share2 size={15} />
                 Share
@@ -273,7 +273,7 @@ export default function BlogPost() {
 
             {/* Author */}
 
-            <p className="mt-6 text-sm font-bold text-forest-950">
+            <p className="mt-6 text-sm font-bold text-brand-950">
               By{' '}
               {post.author_name ||
                 'GreenBe Team'}
@@ -359,7 +359,7 @@ export default function BlogPost() {
 
       {related.length > 0 && (
 
-        <section className="border-t border-forest-100 bg-forest-50/60 py-16 sm:py-20">
+        <section className="border-t border-brand-100 bg-brand-50/60 py-16 sm:py-20">
 
           <div className="container-shell">
 
@@ -367,11 +367,11 @@ export default function BlogPost() {
 
               <div className="mb-8 sm:mb-10">
 
-                <p className="text-xs font-extrabold uppercase tracking-[.18em] text-forest-600">
+                <p className="text-xs font-extrabold uppercase tracking-[.18em] text-brand-600">
                   GreenBe Journal
                 </p>
 
-                <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-forest-950 sm:text-4xl">
+                <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-brand-950 sm:text-4xl">
                   Continue reading
                 </h2>
 

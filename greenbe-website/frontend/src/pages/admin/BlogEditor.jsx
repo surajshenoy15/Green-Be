@@ -85,7 +85,7 @@ function Preview({
 
       <div className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-slate-100 bg-white/95 px-4 backdrop-blur sm:px-8">
 
-        <div className="flex items-center gap-2 font-display font-extrabold text-forest-900">
+        <div className="flex items-center gap-2 font-display font-extrabold text-brand-900">
           <Leaf size={20} />
           Live preview
         </div>
@@ -105,15 +105,15 @@ function Preview({
 
         {/* Article heading */}
 
-        <header className="bg-forest-50 py-14 sm:py-20">
+        <header className="bg-brand-50 py-14 sm:py-20">
 
           <div className="container-shell max-w-5xl">
 
-            <p className="text-xs font-bold uppercase tracking-[.16em] text-forest-600">
+            <p className="text-xs font-bold uppercase tracking-[.16em] text-brand-600">
               {post.category || 'Stories'}
             </p>
 
-            <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-[1.08] text-forest-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-[1.08] text-brand-950 sm:text-5xl lg:text-6xl">
               {post.title || 'Untitled story'}
             </h1>
 
@@ -836,7 +836,7 @@ export default function BlogEditor() {
       <div className="grid min-h-screen place-items-center bg-white">
 
         <LoaderCircle
-          className="animate-spin text-forest-700"
+          className="animate-spin text-brand-700"
         />
 
       </div>
@@ -894,11 +894,11 @@ export default function BlogEditor() {
 
           {/* Brand */}
 
-          <div className="flex items-center gap-2 font-display text-lg font-extrabold text-forest-950">
+          <div className="flex items-center gap-2 font-display text-lg font-extrabold text-brand-950">
 
             <Leaf
               size={20}
-              className="text-forest-700"
+              className="text-brand-700"
             />
 
             GreenBe
@@ -1028,7 +1028,7 @@ export default function BlogEditor() {
                 uploading
               }
 
-              className="inline-flex items-center gap-2 rounded-full bg-forest-700 px-4 py-2 text-xs font-bold text-white hover:bg-forest-800 disabled:opacity-50"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-4 py-2 text-xs font-bold text-white hover:bg-brand-800 disabled:opacity-50"
             >
               <Send
                 size={15}
@@ -1228,7 +1228,7 @@ export default function BlogEditor() {
               )
             }
 
-            className="fixed inset-0 z-[70] bg-forest-950/20 backdrop-blur-[2px]"
+            className="fixed inset-0 z-[70] bg-brand-950/20 backdrop-blur-[2px]"
 
             aria-label="Close settings"
           />
@@ -1243,7 +1243,7 @@ export default function BlogEditor() {
 
               <div>
 
-                <p className="font-display text-lg font-extrabold text-forest-950">
+                <p className="font-display text-lg font-extrabold text-brand-950">
                   Story settings
                 </p>
 
@@ -1299,7 +1299,7 @@ export default function BlogEditor() {
                     uploading
                   }
 
-                  className="relative mt-3 grid min-h-44 w-full place-items-center overflow-hidden rounded-2xl border border-dashed border-forest-200 bg-forest-50 text-forest-700 transition hover:border-forest-400 hover:bg-forest-100 disabled:cursor-wait"
+                  className="relative mt-3 grid min-h-44 w-full place-items-center overflow-hidden rounded-2xl border border-dashed border-brand-200 bg-brand-50 text-brand-700 transition hover:border-brand-400 hover:bg-brand-100 disabled:cursor-wait"
                 >
 
                   {form.thumbnail_url
@@ -1319,9 +1319,9 @@ export default function BlogEditor() {
                         {/* Change-image overlay */}
 
                         {!uploading && (
-                          <div className="absolute inset-0 grid place-items-center bg-forest-950/0 opacity-0 transition hover:bg-forest-950/35 hover:opacity-100">
+                          <div className="absolute inset-0 grid place-items-center bg-brand-950/0 opacity-0 transition hover:bg-brand-950/35 hover:opacity-100">
 
-                            <span className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-forest-800 shadow-lg">
+                            <span className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-brand-800 shadow-lg">
 
                               <ImagePlus
                                 size={15}
@@ -1368,7 +1368,7 @@ export default function BlogEditor() {
                     form.thumbnail_url && (
                       <div className="absolute inset-0 grid place-items-center bg-white/80 backdrop-blur-sm">
 
-                        <span className="flex flex-col items-center gap-2 text-sm font-bold text-forest-700">
+                        <span className="flex flex-col items-center gap-2 text-sm font-bold text-brand-700">
 
                           <LoaderCircle
                             className="animate-spin"
@@ -1391,7 +1391,7 @@ export default function BlogEditor() {
                 {thumbnailCompression &&
                   !uploading && (
 
-                    <div className="mt-2 inline-flex items-center rounded-full border border-forest-100 bg-forest-50 px-3 py-1.5 text-[11px] font-bold text-forest-700">
+                    <div className="mt-2 inline-flex items-center rounded-full border border-brand-100 bg-brand-50 px-3 py-1.5 text-[11px] font-bold text-brand-700">
 
                       Optimised{' '}
 
@@ -1492,7 +1492,7 @@ export default function BlogEditor() {
 
                 URL slug
 
-                <div className="mt-2 flex rounded-xl border border-slate-200 bg-white focus-within:border-forest-500 focus-within:ring-4 focus-within:ring-forest-100">
+                <div className="mt-2 flex rounded-xl border border-slate-200 bg-white focus-within:border-brand-500 focus-within:ring-4 focus-within:ring-brand-100">
 
                   <span className="flex items-center pl-3 text-xs text-slate-400">
                     /blogs/
@@ -1562,7 +1562,7 @@ export default function BlogEditor() {
 
               {/* Featured */}
 
-              <label className="flex items-center justify-between gap-4 rounded-2xl border border-forest-100 p-4">
+              <label className="flex items-center justify-between gap-4 rounded-2xl border border-brand-100 p-4">
 
                 <div>
 
@@ -1591,7 +1591,7 @@ export default function BlogEditor() {
                     )
                   }
 
-                  className="h-5 w-5 accent-[#1c5c3a]"
+                  className="h-5 w-5 accent-[#0090E9]"
                 />
 
               </label>

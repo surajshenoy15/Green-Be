@@ -24,7 +24,7 @@ export default function App() {
   const privateShell = pathname === '/login' || pathname.startsWith('/admin')
 
   return (
-    <div className="min-h-screen bg-white text-forest-950">
+    <div className="min-h-screen bg-white text-brand-950">
       <ScrollToTop />
       {!privateShell && <Navbar />}
       <main>
