@@ -31,7 +31,7 @@ export default function Home() {
     <>
       
 
-<section className="relative overflow-hidden bg-[#F8FBFD]">
+<section className="relative overflow-hidden bg-brand-50 pt-[76px] sm:pt-[86px]">
   <div className="container-shell grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:py-28">
 
     {/* LEFT — CONTENT */}
