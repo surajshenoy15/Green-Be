@@ -9,7 +9,7 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Calculator from './pages/Calculator'
-import AppPage from './pages/AppPage'
+// import AppPage from './pages/AppPage'
 import Login from './pages/Login'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminBlogs from './pages/admin/AdminBlogs'
@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/blogs" element={<Blog />} />
           <Route path="/blogs/:slug" element={<BlogPost />} />
           <Route path="/calculator" element={<Calculator />} />
-          <Route path="/greenbe-app" element={<AppPage />} />
+          {/* <Route path="/greenbe-app" element={<AppPage />} /> */}
           <Route path="/login" element={<Login />} />
 
           <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>

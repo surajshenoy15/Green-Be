@@ -23,7 +23,7 @@ export default function Footer() {
               <Link className="transition hover:text-white" to="/about">About GreenBe</Link>
               <Link className="transition hover:text-white" to="/blogs">Stories & insights</Link>
               <Link className="transition hover:text-white" to="/calculator">Carbon calculator</Link>
-              <Link className="transition hover:text-white" to="/greenbe-app">GreenBe app</Link>
+              {/* <Link className="transition hover:text-white" to="/greenbe-app">GreenBe app</Link> */}
             </nav>
           </div>
           <div>

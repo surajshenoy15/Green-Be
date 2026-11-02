@@ -197,7 +197,7 @@ export default function Home() {
 
       {homeBlogs.length > 0 && <section className="bg-cream py-20 sm:py-28"><div className="container-shell"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><SectionHeading eyebrow="The GreenBe journal" title="Good ideas are worth sharing." copy="Insights and stories to make greener living a little easier." /><Link to="/blogs" className="inline-flex shrink-0 items-center gap-2 text-sm font-extrabold text-brand-600 hover:text-brand-900">Browse stories <ArrowUpRight size={18}/></Link></div><div className="mt-11 grid gap-6 md:grid-cols-3">{homeBlogs.map(post => <BlogCard key={post.id || post.slug} post={post}/>)}</div></div></section>}
 
-      <section className="overflow-hidden py-20 sm:py-28">
+      {/* <section className="overflow-hidden py-20 sm:py-28">
         <div className="container-shell grid items-center gap-16 lg:grid-cols-[1fr_1fr] lg:gap-24">
           <div>
             <span className="eyebrow"><span className="h-2 w-2 rounded-full bg-lime"/> THE GREENBE APP</span>
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
           <div className="relative mx-auto flex w-full max-w-[540px] items-center justify-center overflow-hidden rounded-[2.8rem] bg-brand-50 px-4 pb-10 pt-16 sm:px-12 sm:pb-14 sm:pt-20"><span className="absolute -right-12 -top-14 h-52 w-52 rounded-full border-[36px] border-brand-200/65"/><span className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-lime/30"/><div className="relative z-10"><PhonePreview/></div><span className="absolute bottom-5 right-5 rounded-full bg-white px-4 py-2 text-[10px] font-extrabold uppercase tracking-wider text-brand-800 shadow-soft">App concept preview</span></div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

@@ -6,7 +6,7 @@ const links = [
   ['About us', '/about'],
   ['Our stories', '/blogs'],
   ['Carbon calculator', '/calculator'],
-  ['GreenBe app', '/greenbe-app'],
+  // ['GreenBe app', '/greenbe-app'],
 ]
 
 export default function Navbar() {
