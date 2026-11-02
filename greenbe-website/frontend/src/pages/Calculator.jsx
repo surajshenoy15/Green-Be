@@ -57,7 +57,13 @@ export default function Calculator() {
 
   return (
     <>
-      <PageHero eyebrow="Carbon footprint calculator" title="See where your everyday emissions may be coming from." copy="Enter a few household and lifestyle details to receive a simple annual estimate, category breakdown and practical next steps." image="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85" />
+      <PageHero
+  eyebrow="Carbon footprint calculator"
+  title="See where your everyday emissions may be coming from."
+  copy="Enter a few household and lifestyle details to receive a simple annual estimate, category breakdown and practical next steps."
+  image="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85"
+  centerEyebrow
+/>
       <section className="bg-cream py-12 sm:py-20">
         <div className="container-shell grid gap-8 xl:grid-cols-[1.15fr_.85fr] xl:items-start">
           <div className="space-y-6">

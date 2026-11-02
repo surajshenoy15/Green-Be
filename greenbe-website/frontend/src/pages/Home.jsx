@@ -150,17 +150,43 @@ export default function Home() {
             <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=85" alt="Sunlight in a thriving forest" loading="lazy" className="aspect-[1.08] w-full rounded-[2.5rem] object-cover shadow-soft lg:aspect-[.92]" />
             <div className="absolute -bottom-5 right-4 max-w-[235px] rounded-[1.75rem] border border-brand-100 bg-white p-5 shadow-float sm:right-8"><span className="grid h-10 w-10 place-items-center rounded-2xl bg-lime text-brand-950"><Leaf size={20}/></span><p className="mt-3 font-display text-base font-extrabold leading-snug text-brand-950">The world changes when our habits do.</p></div>
           </div>
-          <div>
-            <SectionHeading eyebrow="Why GreenBe exists" title="Making greener living feel possible for everyone." copy="We believe environmental change becomes meaningful when people can connect knowledge with action. GreenBe brings together sustainability education, easy-to-understand impact tools and community initiatives." />
-            <div className="mt-8 space-y-4">{['Less complexity. More clarity.', 'Everyday choices made visible.', 'Progress that grows with communities.'].map((item, index) => <div key={item} className="flex items-center gap-4 rounded-2xl bg-brand-50 px-5 py-4"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-brand-600"><Check size={19}/></span><p className="text-sm font-extrabold text-brand-900">{item}</p></div>)}</div>
-            <Link to="/about" className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-brand-600 hover:text-brand-900">Get to know us <ArrowRight size={18}/></Link>
-          </div>
+          
+<div className="max-sm:[&_.eyebrow]:mx-auto max-sm:[&_.eyebrow]:flex max-sm:[&_.eyebrow]:w-fit">
+  <SectionHeading
+    eyebrow="Why GreenBe exists"
+    title="Making greener living feel possible for everyone."
+    copy="We believe environmental change becomes meaningful when people can connect knowledge with action. GreenBe brings together sustainability education, easy-to-understand impact tools and community initiatives."
+  />
+
+  <div className="mt-8 space-y-4">
+    {[
+      'Less complexity. More clarity.',
+      'Everyday choices made visible.',
+      'Progress that grows with communities.'
+    ].map((item, index) => (
+      <div key={item} className="flex items-center gap-4 rounded-2xl bg-brand-50 px-5 py-4">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-brand-600">
+          <Check size={19} />
+        </span>
+        <p className="text-sm font-extrabold text-brand-900">{item}</p>
+      </div>
+    ))}
+  </div>
+
+  <Link
+    to="/about"
+    className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-brand-600 hover:text-brand-900"
+  >
+    Get to know us <ArrowRight size={18} />
+  </Link>
+</div>
+
         </div>
       </section>
 
       <section className="bg-cream py-20 sm:py-28">
         <div className="container-shell">
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"><SectionHeading eyebrow="The GreenBe approach" title="From good intentions to real-world actions." copy="An approachable journey designed to make change easier to start—and easier to sustain." /><span className="hidden h-14 w-14 place-items-center rounded-full border border-brand-200 text-brand-500 lg:grid"><ArrowDownRight size={26}/></span></div>
+          <div className="flex flex-col justify-between gap-6 max-sm:[&_.eyebrow]:mx-auto max-sm:[&_.eyebrow]:flex max-sm:[&_.eyebrow]:w-fit lg:flex-row lg:items-end"><SectionHeading eyebrow="The GreenBe approach" title="From good intentions to real-world actions." copy="An approachable journey designed to make change easier to start—and easier to sustain." /><span className="hidden h-14 w-14 place-items-center rounded-full border border-brand-200 text-brand-500 lg:grid"><ArrowDownRight size={26}/></span></div>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {pillars.map(({ icon: Icon, n, title, subtitle, copy }) => <article key={title} className="group relative flex min-h-[285px] flex-col overflow-hidden rounded-[1.9rem] border border-brand-100 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:border-brand-300 hover:shadow-float">
               <div className="flex items-start justify-between"><span className="grid h-14 w-14 place-items-center rounded-[1.2rem] bg-brand-50 text-brand-600 transition group-hover:bg-brand-500 group-hover:text-white"><Icon size={26}/></span><span className="font-display text-lg font-extrabold text-brand-200">{n}</span></div>

@@ -32,7 +32,13 @@ export default function Blog() {
 
   return (
     <>
-      <PageHero eyebrow="GreenBe journal" title="Stories, guides and ideas for cleaner everyday living." copy="Read practical, human-centred perspectives on sustainability, biodiversity, climate education and community action." image="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85" />
+     <PageHero
+  eyebrow="GreenBe journal"
+  title="Stories, guides and ideas for cleaner everyday living."
+  copy="Read practical, human-centred perspectives on sustainability, biodiversity, climate education and community action."
+  image="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85"
+  centerEyebrow
+/>
       <section className="py-16 sm:py-24">
         <div className="container-shell">
           <div className="mb-10 flex flex-col gap-4 rounded-[1.5rem] border border-brand-100 bg-brand-50/50 p-4 sm:flex-row sm:items-center sm:justify-between">

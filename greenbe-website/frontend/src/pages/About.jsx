@@ -15,12 +15,20 @@ const objectives = [
 export default function About() {
   return (
     <>
-      <PageHero eyebrow="About GreenBe" title="We make clean living easier to understand and easier to practise." copy="GreenBe is a purpose-driven NGO connecting environmental education with practical tools, healthier habits and community action." image="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=85" />
+      <PageHero
+  eyebrow="About GreenBe"
+  title="We make clean living easier to understand and easier to practise."
+  copy="GreenBe is a purpose-driven NGO connecting environmental education with practical tools, healthier habits and community action."
+  image="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=85"
+  centerEyebrow
+/>
 
       <section className="py-20 sm:py-28">
         <div className="container-shell grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <span className="eyebrow">Our story</span>
+            <div className="flex justify-center sm:justify-start">
+  <span className="eyebrow">Our story</span>
+</div>
             <h2 className="section-title mt-4">A long-term partner for a lower-carbon way of life.</h2>
           </div>
           <div className="space-y-6 text-base leading-8 text-slate-600 sm:text-lg">
@@ -53,7 +61,12 @@ export default function About() {
       <section className="bg-brand-50 py-20 sm:py-28">
         <div className="container-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1500&q=85" alt="Hands planting a young seedling" className="aspect-[4/3] rounded-[2.25rem] object-cover shadow-soft" />
-          <div><SectionHeading eyebrow="How we work" title="Community participation is not an add-on. It is the method." copy="GreenBe programmes are designed to help people understand a problem, take part in a solution and observe progress over time." />
+          <div className="max-sm:[&_.eyebrow]:mx-auto max-sm:[&_.eyebrow]:flex max-sm:[&_.eyebrow]:w-fit">
+  <SectionHeading
+    eyebrow="How we work"
+    title="Community participation is not an add-on. It is the method."
+    copy="GreenBe programmes are designed to help people understand a problem, take part in a solution and observe progress over time."
+  />
             <div className="mt-8 space-y-5">{[['Listen and understand', 'Begin with local habits, challenges and environmental context.'], ['Design practical interventions', 'Create tools, workshops or campaigns that are clear and easy to participate in.'], ['Measure and improve', 'Track outcomes, learn from the community and make the next cycle stronger.']].map(([title, copy], i) => <div key={title} className="flex gap-4"><span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-700 font-display text-sm font-extrabold text-white">{i + 1}</span><div><h3 className="font-display text-lg font-extrabold text-brand-950">{title}</h3><p className="mt-1 text-sm leading-6 text-slate-600">{copy}</p></div></div>)}</div>
           </div>
         </div>
